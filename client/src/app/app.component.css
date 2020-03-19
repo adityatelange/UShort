@@ -1,0 +1,11 @@
+mat-card {
+    text-align: center;
+}
+
+mat-toolbar {
+    position: fixed;
+    height: 25px;
+    bottom: 0;
+    justify-content: center;
+    font-size: small;
+}

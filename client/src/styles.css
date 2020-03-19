@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: rgb(181, 208, 221);
+}
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    main {
+        padding: 5em;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    main {
+        padding: 5em;
+        padding-left: 5em;
+        padding-right: 5em;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    main {
+        padding: 5em;
+        padding-left: 10em;
+        padding-right: 10em;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    main {
+        padding: 5em;
+        padding-left: 15em;
+        padding-right: 15em;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    main {
+        padding: 5em;
+        padding-left: 20em;
+        padding-right: 20em;
+    }
+}

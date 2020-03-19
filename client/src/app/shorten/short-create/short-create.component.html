@@ -1,0 +1,28 @@
+<mat-card layout-md="" style="text-align: center;">
+    <mat-card-title>
+        URL Shortner
+    </mat-card-title>
+    <mat-card-content>
+        <mat-spinner *ngIf="isLoadingSpinner"></mat-spinner>
+        <form [formGroup]='form' (submit)="onSendUrl()" *ngIf="!isLoadingSpinner">
+            <mat-form-field>
+                <input #url matInput type="text" placeholder="Enter URL to be Shortened" formControlName="url" />
+                <mat-hint align="end">{{url.value.length}} / 256</mat-hint>
+                <mat-error *ngIf="form.get('url').invalid">Inalid URL ! </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-card-actions>
+                <button mat-focus-indicator mat-raised-button color=primary type="submit">Shorten</button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>
+<br>
+<mat-card *ngIf="shortUrl !== '' && shortUrl">
+    <mat-form-field>
+        <input matInput disabled type="text" placeholder="URL" value="{{longUrl}}">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" placeholder="Short URL " value="{{shortUrl}}">
+    </mat-form-field>
+</mat-card>
