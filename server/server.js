@@ -40,7 +40,7 @@ const ShortUrlSchema = mongoose.Schema({
         default: shortid.generate
     }
 })
-var ShortUrl = mongoose.model("ShortUrlSchema", ShortUrlSchema)
+var ShortUrl = mongoose.model("ShortUrl", ShortUrlSchema)
 // ------------------------------------------------------------------------------------------------------------------
 router.post('', (req, res, next) => {
     ShortUrl.findOne({
