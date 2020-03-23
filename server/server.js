@@ -40,18 +40,34 @@ const ShortUrlSchema = mongoose.Schema({
         default: shortid.generate
     }
 })
-ShortUrl = mongoose.model("ShortUrlSchema", ShortUrlSchema)
+var ShortUrl = mongoose.model("ShortUrlSchema", ShortUrlSchema)
 // ------------------------------------------------------------------------------------------------------------------
 router.post('', (req, res, next) => {
-    const url = req.protocol + '://' + req.get("host")
-    const tobeshort = new ShortUrl({
-        url: req.body.url
-    })
-    tobeshort.save().then(createdShortUrl => {
-            res.status(201).json({
-                message: 'Short Url created succesfully',
-                shortUrl: createdShortUrl.shorturl,
-            })
+    ShortUrl.findOne({
+            url: req.body.url
+        })
+        .then(shorturlobj => {
+            if (shorturlobj) {
+                res.status(200).json({
+                    message: 'Short Url Exists',
+                    shortUrl: shorturlobj.shorturl,
+                })
+            } else {
+                const tobeshort = new ShortUrl({
+                    url: req.body.url
+                })
+                tobeshort.save().then(createdShortUrl => {
+                        res.status(201).json({
+                            message: 'Short Url created succesfully',
+                            shortUrl: createdShortUrl.shorturl,
+                        })
+                    })
+                    .catch(error => {
+                        res.status(500).json({
+                            message: "Short Url Creation Failed"
+                        })
+                    })
+            }
         })
         .catch(error => {
             res.status(500).json({
