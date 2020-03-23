@@ -26,6 +26,13 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', "*")
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+    res.setHeader("Feature-Policy", "microphone 'none'; camera 'none'; vibrate 'none'; payment 'none'; gyroscope 'none'; push 'none'; geolocation 'none'")
+    res.setHeader("x-xss-protection", "1; mode=block")
+    res.setHeader("Referrer-Policy", "no-referrer-when-downgrade")
+    res.setHeader("X-Content-Type-Options", "nosniff")
+    res.setHeader("Accept-Encoding", "gzip")
+    res.setHeader("X-Frame-Options", "sameorigin")
+    res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
     next()
 })
 // ------------------------------------------------------------------------------------------------------------------
