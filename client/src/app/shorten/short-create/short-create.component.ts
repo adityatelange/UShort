@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ShortenService } from '../shorten.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from "@angular/material";
+import { ClipboardService } from 'ngx-clipboard'
 
 
 @Component({
@@ -18,7 +19,7 @@ export class ShortCreateComponent implements OnInit {
     longUrl: string
     shortUrl: string;
 
-    constructor(public shortenService: ShortenService, public snackBar: MatSnackBar) { }
+    constructor(public shortenService: ShortenService, public snackBar: MatSnackBar, private _clipboardService: ClipboardService) { }
 
     ngOnInit() {
         var serverUrl = new URL(window.location.href).origin
@@ -51,6 +52,7 @@ export class ShortCreateComponent implements OnInit {
                     this.shortUrl = serverUrl + '/' + urlRec.shortUrl
                     this.isLoadingSpinner = false
                     this.form.reset();
+                    this.copyShortUrl(this.shortUrl)
                 }
             },
             error => {
@@ -59,5 +61,12 @@ export class ShortCreateComponent implements OnInit {
                     duration: 3000,
                 });
             });
+    }
+
+    copyShortUrl(text: string) {
+        this._clipboardService.copyFromContent(text)
+        this.snackBar.open('ShortURL copied to Clipboard !', 'close', {
+            duration: 5000,
+        });
     }
 }
