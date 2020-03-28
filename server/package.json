@@ -1,13 +1,19 @@
 {
-  "name": "server",
+  "name": "ushort-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "This is express server which handles requests from client(Angular) and manages database(mongodb).",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "rundev": "nodemon server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adityatelange/UShort"
+  },
+  "author": "Aditya Telange",
+  "license": "MIT",
+  "private": true,
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

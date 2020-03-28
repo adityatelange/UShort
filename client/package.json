@@ -1,6 +1,7 @@
 {
-  "name": "ushort",
-  "version": "0.0.0",
+  "name": "ushort-client",
+  "version": "1.0.0",
+  "description": "UShort Client was generated with Angular CLI version 8.3.25.",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,6 +10,12 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adityatelange/UShort"
+  },
+  "author": "Aditya Telange",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.14",
