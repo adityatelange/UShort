@@ -4,4 +4,4 @@
     UShort
 </h1>
 
-<p align=center>UShort is an simple URL Shortner Web-App built on MEAN stack</p>
+<p align=center>UShort is an simple URL Shortener Web-App built on MEAN stack</p>
