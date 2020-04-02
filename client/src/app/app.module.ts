@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from './angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ShortenModule } from './shorten/shorten.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { ShortenModule } from './shorten/shorten.module';
     BrowserAnimationsModule,
     HttpClientModule,
     AngularMaterialModule,
-    ShortenModule
+    ShortenModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
