@@ -7,6 +7,9 @@
         <form [formGroup]='form' (submit)="onSendUrl()" *ngIf="!isLoadingSpinner">
             <mat-form-field>
                 <input #url matInput type="text" placeholder="Enter URL to be Shortened" formControlName="url" />
+                <button mat-button *ngIf="url.value" matSuffix mat-icon-button aria-label="Clear" (click)="url.value=''">
+                    <mat-icon>close</mat-icon>
+                </button>
                 <mat-hint align="end">{{url.value.length}} / 256</mat-hint>
                 <mat-error *ngIf="form.get('url').invalid">Inalid URL ! </mat-error>
             </mat-form-field>
@@ -19,13 +22,16 @@
 </mat-card>
 <br>
 <mat-card *ngIf="shortUrl !== '' && shortUrl" style="text-align: center;">
-    <mat-form-field>
-        <input matInput disabled type="text" placeholder="URL" value="{{longUrl}}">
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput #shorturl type="text" placeholder="Short URL " value="{{shortUrl}}">
-    </mat-form-field>
-    <mat-card-actions>
-        <button mat-focus-indicator mat-raised-button color=primary type="submit" (click)="copyShortUrl(shorturl.value)">Copy2Clipboard</button>
-    </mat-card-actions>
+    <mat-card-content>
+        <mat-form-field>
+            <input matInput disabled type="text" placeholder="URL" value="{{longUrl}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput #shorturl type="text" placeholder="Short URL " value="{{shortUrl}}">
+        </mat-form-field>
+        <mat-card-actions>
+            <button mat-focus-indicator mat-raised-button color=primary type="submit"
+                (click)="copyShortUrl(shorturl.value)">Copy2Clipboard</button>
+        </mat-card-actions>
+    </mat-card-content>
 </mat-card>
