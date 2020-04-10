@@ -105,9 +105,11 @@ export class ShortCreateComponent implements OnInit {
     }
 
     copyShortUrl(text: string) {
-        this._clipboardService.copyFromContent(text)
-        this.snackBar.open('ShortURL copied to Clipboard !', 'close', {
-            duration: 5000,
-        });
+        let check = this._clipboardService.copyFromContent(text)
+        if (check) {
+            this.snackBar.open('ShortURL copied to Clipboard !', 'close', {
+                duration: 5000,
+            });
+        }
     }
 }
