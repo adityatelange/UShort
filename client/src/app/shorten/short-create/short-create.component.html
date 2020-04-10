@@ -18,11 +18,14 @@
     </mat-card-content>
 </mat-card>
 <br>
-<mat-card *ngIf="shortUrl !== '' && shortUrl">
+<mat-card *ngIf="shortUrl !== '' && shortUrl" style="text-align: center;">
     <mat-form-field>
         <input matInput disabled type="text" placeholder="URL" value="{{longUrl}}">
     </mat-form-field>
     <mat-form-field>
-        <input matInput type="text" placeholder="Short URL " value="{{shortUrl}}">
+        <input matInput #shorturl type="text" placeholder="Short URL " value="{{shortUrl}}">
     </mat-form-field>
+    <mat-card-actions>
+        <button mat-focus-indicator mat-raised-button color=primary type="submit" (click)="copyShortUrl(shorturl.value)">Copy2Clipboard</button>
+    </mat-card-actions>
 </mat-card>
