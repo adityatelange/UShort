@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ShortenService } from '../shorten.service';
-import { Router } from '@angular/router';
 import { MatSnackBar } from "@angular/material";
 import { ClipboardService } from 'ngx-clipboard'
 
